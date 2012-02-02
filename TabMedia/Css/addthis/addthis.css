@@ -1,0 +1,26 @@
+﻿.indique{
+	width:250px;
+	height:50px;
+	display:block;
+}
+.indique ul{
+	display:block;
+	width:220px;
+	height:auto;
+	float:left;
+	display:block;
+}	
+.indique ul li{
+	width:20px;
+	height:auto;
+	float:left;
+	background-position:center;
+}
+.indique p{
+	background:url(images/h-indique-este-site.gif) 0 0 no-repeat;
+	width:103px;
+	text-indent:-999999px;
+	overflow:hidden;
+	font-size:13px;
+	color:#e9138d;
+}

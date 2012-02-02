@@ -1,0 +1,67 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Models;
+
+namespace Controllers
+{
+    [AuthorizeLogin]
+    public class AjudaController : BaseController
+    {
+        AjudaRepository ajudaRepository = new AjudaRepository();
+        Util.Logs logs = new Util.Logs(Log.EnumPagina.Ajuda, Log.EnumArea.Site);
+        //
+        // GET: /Admin/Duvidas/
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
+        public ActionResult Paginas()
+        {
+            return View();
+        }
+
+        public ActionResult Campanhas()
+        {
+            return View();
+        }
+
+        public ActionResult Suporte()
+        {
+            return View();
+        }
+
+        public ActionResult Alterar()
+        {
+            return View();
+        }
+
+        [ValidateInput(false)]
+        [HttpPost]
+        public ActionResult Alterar(Ajuda ajudaAlterada)
+        {
+            if (ModelState.IsValid)
+            {
+                Ajuda ajuda = ajudaRepository.GetAjuda();
+                UpdateModel(ajuda);
+                ajudaRepository.Save();
+
+                logs.Add(Log.EnumTipo.Alteracao, "Alterou a ajuda", Url.Action("index"));
+
+                return RedirectToAction("index");
+            }
+
+            return Alterar();
+        }
+
+    }
+}

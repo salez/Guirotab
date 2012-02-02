@@ -1,0 +1,8 @@
+﻿
+<span id="charsLeft"></span> chars left.
+
+<textarea id="myTextarea"></textarea>
+
+<script type="text/javascript">
+    $('#myTextarea').limit('140','#charsLeft');
+</script>

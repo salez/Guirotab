@@ -1,0 +1,299 @@
+﻿<script type="text/javascript">
+    
+    function showGraficos[linha_id](){
+        $('#graficos[linha_id]').show();
+        $('#tab[linha_id]').hide();
+    }
+
+    function showTab[linha_id](){
+        $('#graficos[linha_id]').hide();
+        $('#tab[linha_id]').show();
+    }
+
+    function renderGrafico[linha_id]() {
+        // FUNCTION GRAFICOS
+        new Highcharts.Chart({
+            chart: {
+                renderTo: 'grafico[linha_id]',
+                defaultSeriesType: 'column'
+            },
+//            colors: [
+//	            '#00096F',
+//	            '#0058C4',
+//	            '#01832C',
+//	            '#01AD39',
+//	            '#37376F',
+//	            '#484891',
+//	            '#5F5FAF',
+//	            '#8181C0',
+//	            '#B5CA92'
+//            ],
+            title: {
+                text: 'Visualizações'
+            },
+            subtitle: {
+                text: '[subtitulo]'
+            },
+            xAxis: {
+                title: {
+                    text: '[titulo_x]'
+                },
+                categories: [
+		            [categorias]
+	            ],
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    style: {
+                        font: 'normal 13px Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '[titulo_y]'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'bottom',
+                shadow: true,
+                floating: true,
+                labelFormatter: function () {
+                    return this.name
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '' +
+			            this.point.name + ":" + this.y + '';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                       enabled: false
+                    },
+                    showInLegend: true,
+                    center: [100, 80],
+                    size: 100
+                 },
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+//            labels: {
+//                items: [{
+//                    html: 'Visualizações',
+//                    style: {
+//                        left: '160px',
+//                        top: '8px',
+//                        color: 'black'            
+//                    }
+//                    },{
+//                    html: 'Tempo Médio',
+//                    style: {
+//                        left: '555px',
+//                        top: '8px',
+//                        color: 'black'            
+//                    }
+//                    }]
+//            },
+            series: [{
+                    type: 'pie',
+                    name: 'pie',
+                    legendIndex: 1,
+                    data: [
+                        [grafico_series]
+                    ],
+                     center: [225,200],
+                     size: 300,
+                     showInLegend: true,
+                     dataLabels: {
+                        enabled: false
+                    }
+                }]
+
+        });
+
+        new Highcharts.Chart({
+            chart: {
+                renderTo: 'graficoTempo[linha_id]',
+                defaultSeriesType: 'column'
+            },
+//            colors: [
+//	            '#00096F',
+//	            '#0058C4',
+//	            '#01832C',
+//	            '#01AD39',
+//	            '#37376F',
+//	            '#484891',
+//	            '#5F5FAF',
+//	            '#8181C0',
+//	            '#B5CA92'
+//            ],
+            title: {
+                text: 'Tempo Médio'
+            },
+            subtitle: {
+                text: '[subtitulo]'
+            },
+            xAxis: {
+                title: {
+                    text: '[titulo_x]'
+                },
+                categories: [
+		            [categorias]
+	            ],
+                labels: {
+                    rotation: -45,
+                    align: 'right',
+                    style: {
+                        font: 'normal 13px Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '[titulo_y]'
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                backgroundColor: '#FFFFFF',
+                align: 'left',
+                verticalAlign: 'bottom',
+                shadow: true,
+                floating: true,
+                labelFormatter: function () {
+                    return this.name
+                }
+            },
+            tooltip: {
+                formatter: function () {
+                    return '' +
+			            this.point.name + ":" + this.y + '';
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                       enabled: false
+                    },
+                    showInLegend: true,
+                    center: [100, 80],
+                    size: 100
+                 },
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
+            },
+            series: [{
+                    type: 'pie',
+                    name: 'pie2',
+                    legendIndex: 1,
+                    data: [
+                        [grafico_series_tempo]
+                    ],
+                     center: [225,200],
+                     size: 300,
+                     showInLegend: true,
+                     dataLabels: {
+                        enabled: false
+                    }
+                }]
+
+        });
+
+    }
+
+
+
+    
+</script>
+
+<br /><br /><br />
+
+<h2>[linha]</h2>
+
+<a class="botaoTabela" href="javascript:showTab[linha_id]()">Tabela</a> <a class="botaoGrafico" href="javascript:showGraficos[linha_id]()">Gráfico</a>
+
+<div id="tab[linha_id]">
+
+<table class="tabela">
+    <thead>
+    	<tr>
+        	<th class="linhaCinza" colspan="6"></th>
+        </tr>
+        <tr>
+            <th class="semBarra">
+                Produto
+            </th>
+            <th class="semBarra" style="width: 200px;">
+                Visualizações
+            </th>
+            <th class="semBarra" style="width: 200px;">
+                Tempo Total (min:seg)
+            </th>
+            <th class="semBarra" style="width: 200px;">
+                Tempo Médio (min:seg)
+            </th>
+            <th class="semBarra acao" style="width: 100px;">&nbsp;</th>
+        </tr>
+    	<tr>
+        	<th class="linhaCinza" colspan="6"></th>
+        </tr>
+    	<tr>
+        	<th class="linhaBranco" colspan="6"></th>
+        </tr>
+    </thead>
+    <tbody>
+        [produtos]
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                <b>TOTAL</b>
+            </td>
+            <td>
+                [total_visualizacoes]
+            </td>
+            <td>
+                [total_tempo]
+            </td>
+            <td>
+                [total_tempo_medio]
+            </td>
+            <td />
+        </tr>
+    	<tr>
+        	<th class="linhaBranco" colspan="6"></th>
+        </tr>
+    	<tr>
+        	<th class="linhaCinza" colspan="6"></th>
+        </tr>
+    </tfoot>
+</table>
+
+</div>
+
+<div id="graficos[linha_id]" style="display: none;">
+
+<div id="grafico[linha_id]" style="width: 475px; height: 500px; margin: 0 auto; float: left"></div>
+<div id="graficoTempo[linha_id]" style="width: 475px; height: 500px; margin: 0 auto; float: left"></div>
+
+</div>
+
+<script type="text/javascript">
+    renderGrafico[linha_id]();
+</script>

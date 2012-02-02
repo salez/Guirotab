@@ -1,0 +1,13 @@
+﻿Basic Usage:
+
+$().ready(function(){
+  $('#search').textboxhelp({help:'Search!'});
+});
+
+Basic Usage With Custom Class:
+
+$().ready(function(){
+  $('#search').textboxhelp({help:'Search!', focuscls:'custom_cls'});
+});
+
+That's all.

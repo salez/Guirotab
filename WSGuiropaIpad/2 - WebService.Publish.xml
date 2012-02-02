@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="H:\Projetos\GuiropaIpad\Deploy\GuiropaIpadWS" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="01/20/2012 01:54:44" />
+    <file relUrl="Email/esqueciminhasenha.htm" publishTime="11/21/2011 11:29:15" />
+    <file relUrl="Email/statusVaReprovadoPorGM.htm" publishTime="11/21/2011 11:29:13" />
+    <file relUrl="Email/statusVa.htm" publishTime="11/21/2011 11:29:16" />
+    <file relUrl="bin/Models.dll" publishTime="01/30/2012 18:14:42" />
+    <file relUrl="Email/faleconosco.htm" publishTime="11/21/2011 11:29:15" />
+    <file relUrl="bin/Ionic.Zip.dll" publishTime="03/23/2011 12:21:58" />
+    <file relUrl="Email/statusVaPendente.htm" publishTime="11/21/2011 11:29:16" />
+    <file relUrl="Email/newsletter.htm" publishTime="11/21/2011 11:29:16" />
+    <file relUrl="Email/erro.htm" publishTime="11/21/2011 11:29:14" />
+    <file relUrl="bin/Models.pdb" publishTime="01/30/2012 18:14:42" />
+    <file relUrl="Email/logEmail.htm" publishTime="11/21/2011 11:29:15" />
+    <file relUrl="bin/WSGuiropaIpad.pdb" publishTime="01/30/2012 18:40:54" />
+    <file relUrl="Email/statusVaReprovado.htm" publishTime="11/21/2011 11:29:16" />
+    <file relUrl="bin/WSGuiropaIpad.dll" publishTime="01/30/2012 18:40:54" />
+    <file relUrl="IpadWS.asmx" publishTime="03/22/2011 12:24:51" />
+  </publishProfile>
+</publishData>

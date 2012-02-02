@@ -1,0 +1,12 @@
+﻿documentacao: http://jquery.malsup.com/corner/
+
+exemplos:
+
+$(".menutop").corner('bottom')
+$(".menu, .titulo, .conteudo, .tabela-container, .bloco").corner();
+$('.sub-menu a').corner('5px');
+$('a.botao, .jqTransformButton > span').corner('5px');
+
+IMPORTANTE!
+
+para renderização correta no IE6, a altura dos elementos afetados pelo corner deve ser par (contando padding e qlqr outra coisa que influencie na altura).

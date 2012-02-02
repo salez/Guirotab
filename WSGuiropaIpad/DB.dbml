@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GuiropaIpad" EntityNamespace="WS.DB.Models" ContextNamespace="WS.DB.Models" Class="DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=RODRIGO\SQLEXPRESS;Initial Catalog=GuiropaIpad;Persist Security Info=True;User ID=admin" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.gip_ajuda" Member="Ajudas">
+    <Type Name="Ajuda">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Texto" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Contexto" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_visualizacoes" Member="Visualizacaos">
+    <Type Name="Visualizacao">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IP" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Contexto" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="IdObjeto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_doutores" Member="Doutors">
+    <Type Name="Doutor">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="IdTerritorio" Storage="_Territorio" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRMUF" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="TelefoneDDD" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Numero" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DataNascimento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Codigo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Doutor_DoutorEspecialidade" Member="DoutorEspecialidades" ThisKey="Id" OtherKey="IdDoutor" Type="DoutorEspecialidade" />
+      <Association Name="Doutor_Relatorio" Member="Relatorios" ThisKey="Id" OtherKey="IdDoutor" Type="Relatorio" />
+      <Association Name="Doutor_DoutorProduto" Member="DoutorProdutos" ThisKey="Id" OtherKey="IdDoutor" Type="DoutorProduto" />
+      <Association Name="Territorio_Doutor" Member="Territorio" Storage="_Territorio1" ThisKey="IdTerritorio" OtherKey="Id" Type="Territorio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_doutores_especialidades" Member="DoutorEspecialidades">
+    <Type Name="DoutorEspecialidade">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEspecialidade" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdDoutor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Doutor_DoutorEspecialidade" Member="Doutor" ThisKey="IdDoutor" OtherKey="Id" Type="Doutor" IsForeignKey="true" />
+      <Association Name="Especialidade_DoutorEspecialidade" Member="Especialidade" ThisKey="IdEspecialidade" OtherKey="Id" Type="Especialidade" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_emails" Member="Emails">
+    <Type Name="Email">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="De" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DeEmail" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="Assunto" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="CorpoHtml" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Corpo" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Encode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SmtpAutenticado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SmtpUsuario" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SmtpSenha" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SslHabilitado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Host" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Porta" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Email_EmailDestinatario" Member="EmailDestinatarios" ThisKey="Id" OtherKey="IdEmail" Type="EmailDestinatario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_emails_destinatarios" Member="EmailDestinatarios">
+    <Type Name="EmailDestinatario">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdEmail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Email_EmailDestinatario" Member="Email1" ThisKey="IdEmail" OtherKey="Id" Type="Email" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_erros" Member="Erros">
+    <Type Name="Erro">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Pagina" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PaginaAnterior" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="RequestHost" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="HostName" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="UserAgent" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="ErroMsg" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="InfoUsuario" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_especialidades" Member="Especialidades">
+    <Type Name="Especialidade">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Especialidade_DoutorEspecialidade" Member="DoutorEspecialidades" ThisKey="Id" OtherKey="IdEspecialidade" Type="DoutorEspecialidade" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_logs" Member="Logs">
+    <Type Name="Log">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdObjeto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="TipoAcao" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Pagina" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Area" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Link" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Usuario_Log" Member="Usuario" ThisKey="IdUsuario" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_paginas_acoes" Member="Acaos">
+    <Type Name="Acao">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IdControlador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Acao_AcaoGrupo" Member="AcaoGrupos" ThisKey="Id" OtherKey="IdAcao" Type="AcaoGrupo" />
+      <Association Name="Controlador_Acao" Member="Controlador" ThisKey="IdControlador" OtherKey="Id" Type="Controlador" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_produtos" Member="Produtos">
+    <Type Name="Produto">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdLinha" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Produto_ProdutoVa" Member="ProdutoVas" ThisKey="Id" OtherKey="IdProduto" Type="ProdutoVa" />
+      <Association Name="Produto_UsuarioProduto" Member="UsuarioProdutos" ThisKey="Id" OtherKey="IdProduto" Type="UsuarioProduto" />
+      <Association Name="Produto_DoutorProduto" Member="DoutorProdutos" ThisKey="Id" OtherKey="IdProduto" Type="DoutorProduto" />
+      <Association Name="ProdutoLinha_Produto" Member="ProdutoLinha" ThisKey="IdLinha" OtherKey="Id" Type="ProdutoLinha" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_produtos_linhas" Member="ProdutoLinhas">
+    <Type Name="ProdutoLinha">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ProdutoLinha_Produto" Member="Produtos" ThisKey="Id" OtherKey="IdLinha" Type="Produto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_produtos_vas_slides_arquivos" Member="ProdutoVaSlideArquivos">
+    <Type Name="ProdutoVaSlideArquivo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdSlide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ProdutoVaSlide_ProdutoVaSlideArquivo" Member="ProdutoVaSlide" ThisKey="IdSlide" OtherKey="Id" Type="ProdutoVaSlide" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_produtos_vas" Member="ProdutoVas">
+    <Type Name="ProdutoVa">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Versao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ProdutoVa_ProdutoVaArquivo" Member="ProdutoVaArquivos" ThisKey="Id" OtherKey="IdVa" Type="ProdutoVaArquivo" />
+      <Association Name="ProdutoVa_ProdutoVaComentario" Member="ProdutoVaComentarios" ThisKey="Id" OtherKey="IdVa" Type="ProdutoVaComentario" />
+      <Association Name="ProdutoVa_ProdutoVaSlide" Member="ProdutoVaSlides" ThisKey="Id" OtherKey="IdVa" Type="ProdutoVaSlide" />
+      <Association Name="ProdutoVa_Relatorio" Member="Relatorios" ThisKey="Id" OtherKey="IdVa" Type="Relatorio" />
+      <Association Name="Produto_ProdutoVa" Member="Produto" ThisKey="IdProduto" OtherKey="Id" Type="Produto" IsForeignKey="true" />
+      <Association Name="Usuario_ProdutoVa" Member="Usuario" ThisKey="IdUsuario" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_produtos_vas_arquivos" Member="ProdutoVaArquivos">
+    <Type Name="ProdutoVaArquivo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdVa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ProdutoVa_ProdutoVaArquivo" Member="ProdutoVa" ThisKey="IdVa" OtherKey="Id" Type="ProdutoVa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_produtos_vas_comentarios" Member="ProdutoVaComentarios">
+    <Type Name="ProdutoVaComentario">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdVa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Datainclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="ProdutoVa_ProdutoVaComentario" Member="ProdutoVa" ThisKey="IdVa" OtherKey="Id" Type="ProdutoVa" IsForeignKey="true" />
+      <Association Name="Usuario_ProdutoVaComentario" Member="Usuario" ThisKey="IdUsuario" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_produtos_vas_slides" Member="ProdutoVaSlides">
+    <Type Name="ProdutoVaSlide">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdVa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Ordem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ProdutoVaSlide_ProdutoVaSlideArquivo" Member="ProdutoVaSlideArquivos" ThisKey="Id" OtherKey="IdSlide" Type="ProdutoVaSlideArquivo" />
+      <Association Name="ProdutoVaSlide_RelatorioPagina" Member="RelatorioPaginas" ThisKey="Id" OtherKey="IdSlide" Type="RelatorioPagina" />
+      <Association Name="ProdutoVa_ProdutoVaSlide" Member="ProdutoVa" ThisKey="IdVa" OtherKey="Id" Type="ProdutoVa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_relatorios" Member="Relatorios">
+    <Type Name="Relatorio">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdTerritorio" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Data" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdDoutor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdVa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Relatorio_RelatorioEmail" Member="RelatorioEmails" ThisKey="Id" OtherKey="IdRelatorio" Type="RelatorioEmail" />
+      <Association Name="Relatorio_RelatorioPagina" Member="RelatorioPaginas" ThisKey="Id" OtherKey="IdRelatorio" Type="RelatorioPagina" />
+      <Association Name="Doutor_Relatorio" Member="Doutor" ThisKey="IdDoutor" OtherKey="Id" Type="Doutor" IsForeignKey="true" />
+      <Association Name="ProdutoVa_Relatorio" Member="ProdutoVa" ThisKey="IdVa" OtherKey="Id" Type="ProdutoVa" IsForeignKey="true" />
+      <Association Name="Territorio_Relatorio" Member="Territorio" ThisKey="IdTerritorio" OtherKey="Id" Type="Territorio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_relatorios_emails" Member="RelatorioEmails">
+    <Type Name="RelatorioEmail">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="IdRelatorio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Relatorio_RelatorioEmail" Member="Relatorio" ThisKey="IdRelatorio" OtherKey="Id" Type="Relatorio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_relatorios_paginas" Member="RelatorioPaginas">
+    <Type Name="RelatorioPagina">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdRelatorio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TemVideo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IdSlide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Segundos" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="ProdutoVaSlide_RelatorioPagina" Member="ProdutoVaSlide" ThisKey="IdSlide" OtherKey="Id" Type="ProdutoVaSlide" IsForeignKey="true" />
+      <Association Name="Relatorio_RelatorioPagina" Member="Relatorio" ThisKey="IdRelatorio" OtherKey="Id" Type="Relatorio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_territorios" Member="Territorios">
+    <Type Name="Territorio">
+      <Column Name="Id" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Cpf" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Bairro" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Cidade" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IdEstado" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="Cep" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Senha" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Territorio_Doutor" Member="Doutors" ThisKey="Id" OtherKey="IdTerritorio" Type="Doutor" />
+      <Association Name="Territorio_Relatorio" Member="Relatorios" ThisKey="Id" OtherKey="IdTerritorio" Type="Relatorio" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_usuarios_gerentes_agencias" Member="UsuarioGerenteAgencias">
+    <Type Name="UsuarioGerenteAgencia">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdUsuarioGerente" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdUsuarioAgencia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Usuario_UsuarioGerenteAgencia" Member="gip_usuario" ThisKey="IdUsuarioGerente" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+      <Association Name="Usuario_UsuarioGerenteAgencia1" Member="Usuario" ThisKey="IdUsuarioAgencia" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_usuarios_produtos" Member="UsuarioProdutos">
+    <Type Name="UsuarioProduto">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Produto_UsuarioProduto" Member="Produto" ThisKey="IdProduto" OtherKey="Id" Type="Produto" IsForeignKey="true" />
+      <Association Name="Usuario_UsuarioProduto" Member="Usuario" ThisKey="IdUsuario" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_visitas_online" Member="VisitaOnlines">
+    <Type Name="VisitaOnline">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdUsuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Usuario_VisitaOnline" Member="Usuario" ThisKey="IdUsuario" OtherKey="Id" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_gerenciador_arquivos" Member="GerenciadorArquivos">
+    <Type Name="GerenciadorArquivo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_paginas_controladores" Member="Controladors">
+    <Type Name="Controlador">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Controlador_Acao" Member="Acaos" ThisKey="Id" OtherKey="IdControlador" Type="Acao" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_usuarios_grupos_acoes" Member="AcaoGrupos">
+    <Type Name="AcaoGrupo">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdGrupo" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IdAcao" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Acao_AcaoGrupo" Member="Acao" ThisKey="IdAcao" OtherKey="Id" Type="Acao" IsForeignKey="true" />
+      <Association Name="Grupo_AcaoGrupo" Member="Grupo" ThisKey="IdGrupo" OtherKey="Id" Type="Grupo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_usuarios" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Login" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Senha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DataUltimoLogin" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdGrupo" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CodigoRecuperacaoSenha" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="CodigoAtivacao" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="CodigoLogin" Type="System.String" DbType="VarChar(14)" CanBeNull="true" />
+      <Column Name="DataAlteracao" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="DataInclusao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Association Name="Usuario_Log" Member="Logs" ThisKey="Id" OtherKey="IdUsuario" Type="Log" />
+      <Association Name="Usuario_ProdutoVa" Member="ProdutoVas" ThisKey="Id" OtherKey="IdUsuario" Type="ProdutoVa" />
+      <Association Name="Usuario_ProdutoVaComentario" Member="ProdutoVaComentarios" ThisKey="Id" OtherKey="IdUsuario" Type="ProdutoVaComentario" />
+      <Association Name="Usuario_UsuarioGerenteAgencia" Member="UsuarioGerenteAgencias" ThisKey="Id" OtherKey="IdUsuarioGerente" Type="UsuarioGerenteAgencia" />
+      <Association Name="Usuario_UsuarioGerenteAgencia1" Member="UsuarioGerenteAgencias1" ThisKey="Id" OtherKey="IdUsuarioAgencia" Type="UsuarioGerenteAgencia" />
+      <Association Name="Usuario_UsuarioProduto" Member="UsuarioProdutos" ThisKey="Id" OtherKey="IdUsuario" Type="UsuarioProduto" />
+      <Association Name="Usuario_VisitaOnline" Member="VisitaOnlines" ThisKey="Id" OtherKey="IdUsuario" Type="VisitaOnline" />
+      <Association Name="Grupo_Usuario" Member="Grupo" ThisKey="IdGrupo" OtherKey="Id" Type="Grupo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_usuarios_grupos" Member="Grupos">
+    <Type Name="Grupo">
+      <Column Name="Id" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(400)" CanBeNull="true" />
+      <Column Name="Ordem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Grupo_AcaoGrupo" Member="AcaoGrupos" ThisKey="Id" OtherKey="IdGrupo" Type="AcaoGrupo" />
+      <Association Name="Grupo_Usuario" Member="Usuarios" ThisKey="Id" OtherKey="IdGrupo" Type="Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.gip_doutores_produtos" Member="DoutorProdutos">
+    <Type Name="DoutorProduto">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdDoutor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IdProduto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Orderm" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Doutor_DoutorProduto" Member="Doutor" ThisKey="IdDoutor" OtherKey="Id" Type="Doutor" IsForeignKey="true" />
+      <Association Name="Produto_DoutorProduto" Member="Produto" ThisKey="IdProduto" OtherKey="Id" Type="Produto" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

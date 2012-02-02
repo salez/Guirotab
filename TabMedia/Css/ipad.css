@@ -1,0 +1,18 @@
+﻿.geral{
+	width:950px;
+	display:block;
+	position: absolute;
+	left: 50%;
+	margin-left: -475px;
+}
+
+.topo{
+	width:949px;
+	height:130px !important;
+	display:block !important;
+	float: left !important;
+}	
+
+.conteudo-baixo .tabela td a.duplicar{
+	margin-left:0px;
+}	

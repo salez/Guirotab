@@ -1,0 +1,383 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title></title>
+    <link rel="Stylesheet" href="all.css" />
+    <link rel="Stylesheet" href="style.css" />
+</head>
+<body>
+    <p>Here are the rules already implemented in the validator:</p>
+<p><strong>optional</strong>: <strong>Special:</strong> Only validate when the field is not empty <strong>*Please call optional first</strong><br />
+<strong>required</strong>: Field is required<br />
+<strong>length[0,100]</strong> : Between x and x characters allowed<br />
+<strong>maxCheckbox[7]</strong> : Set the maximum checkbox autorized for a group<br />
+
+<strong>minCheckbox[7]</strong> : Set the minimum checkbox autorized for a group<br />
+<strong>confirm[fieldID]</strong> : Match the other field (ie:confirm password)<br />
+<strong>telephone </strong>: Match telephone regEx rule.<br />
+<strong>email</strong> : Match email regEx rule.<br />
+<strong>onlyNumber</strong> : Numbers only<br />
+
+<strong>noSpecialCaracters</strong> : No special characters allowed<br />
+<strong>onlyLetter</strong> : Letters only<br />
+<strong>exemptString</strong> : Will not validate if the string match<br />
+<strong>date</strong> : Invalid date, must be in YYYY-MM-DD format<br />
+<strong>funcCall</strong> : Validate custom functions outside of the engine scope</p>
+
+<h3>Customizations</h3>
+<p><strong>Custom RegEx Rules:</strong><br />
+You can create custom rules easily, only add your custom rule in the json object, you can take telephone as an example, just copy and paste under it.</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">&quot;telephone&quot;:{
+</div>
+</li>
+<li class="li1">
+<div class="de1">&quot;regex&quot;:&quot;/^[0-9-()]+$/&quot;,
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">&quot;alertText&quot;:&quot;* Invalid phone number&quot;},</div>
+</li>
+</ol>
+</div>
+<p><strong>Language localization:</strong><br />
+In the js folder you will find jquery.validationEngine-fr.js , in this file you have the json object used to create the validation rules, you can localize this file in any language you like. Add this file just before jquery.validationEngine.js. Your head document should look like this:</p>
+<div class="geshi no html">
+<ol>
+
+<li class="li1">
+<div class="de1">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/validationEngine.jquery.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot; charset=&quot;utf-8&quot; /&gt;
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">&lt;script src=&quot;js/jquery.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</div>
+</li>
+<li class="li1">
+<div class="de1">&lt;script src=&quot;js/jquery.validationEngine-fr.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">&lt;script src=&quot;js/jquery.validationEngine.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</div>
+</li>
+</ol>
+</div>
+<p><strong>Optional inline validation</strong><br />
+You can now validate only on form submit by using this customization: inlineValidation: false, in your DOM ready,</p>
+
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">$(&quot;#formID&quot;).validationEngine({
+</div>
+</li>
+<li class="li1">
+<div class="de1">inlineValidation: false,
+</div>
+</li>
+<li class="li1">
+<div class="de1">success : &nbsp;false,
+</div>
+</li>
+
+<li class="li1">
+<div class="de1">failure : function() { callFailFunction() &nbsp;}
+</div>
+</li>
+<li class="li1">
+<div class="de1">})</div>
+</li>
+</ol>
+</div>
+<p><strong>Change validation event trigger</strong><br />
+You can change the event that trigger the validation in the settings, default is blur</p>
+<div class="geshi no html">
+<ol>
+
+<li class="li1">
+<div class="de1">$(&quot;#formID&quot;).validationEngine({
+</div>
+</li>
+<li class="li1">
+<div class="de1">validationEventTriggers:&quot;keyup blur&quot;, &nbsp;//will validate on keyup and blur &nbsp;
+</div>
+</li>
+<li class="li1">
+<div class="de1">success : &nbsp;false,
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">failure : function() { callFailFunction() &nbsp;}
+</div>
+</li>
+<li class="li1">
+<div class="de1">})</div>
+</li>
+</ol>
+</div>
+<p><strong>No scrolling</strong></p>
+<div class="geshi no html">
+<ol>
+
+<li class="li1">
+<div class="de1">&nbsp;$(&quot;#formID&quot;).validationEngine({scroll:false})</div>
+</li>
+</ol>
+</div>
+<p><strong>Validate and return true or false</strong><br />
+Can be use anywhere in your script</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">alert($(&quot;#formID&quot;).validationEngine({returnIsValid:true})); &nbsp;// alert will return true or false</div>
+
+</li>
+</ol>
+</div>
+<p><strong>Do not unbind the engine submit event upon success function</strong><br />
+You may not need this setting, sometimes you want the engine to stay binded on submit even if the success function is fired.</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">$(&quot;#formID&quot;).validationEngine({unbindEngine:false}));</div>
+</li>
+</ol>
+</div>
+
+<p><strong>Prompt positioning</strong><br />
+Positioning is not perfect, this is a good start but much work is needed to have this working in every situation, when you call on dom ready change this setting.</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">$(&quot;#formID&quot;).validationEngine({
+</div>
+</li>
+<li class="li1">
+<div class="de1">promptPosition: &quot;topRight&quot;, // OPENNING BOX POSITION, IMPLEMENTED: topLeft, topRight, bottomLeft, &nbsp;centerRight, bottomRight
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">success : &nbsp;false,
+</div>
+</li>
+<li class="li1">
+<div class="de1">failure : function() {
+</div>
+</li>
+<li class="li1">
+<div class="de1">})</div>
+</li>
+</ol>
+</div>
+
+<h3>Custom functions call (Validate from any function you created)</h3>
+<p>Sometimes you need to validate complex rules that are not included in this engine. With this feature you can validate from any function in javascript and return true if there is and error and false if the function validate correctly.</p>
+<p>In your field add:</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">&lt;input value=&quot;&quot; &nbsp;class=&quot;validate[required,funcCall[validate2fields]] text-input&quot; type=&quot;text&quot; id=&quot;lastname&quot; name=&quot;lastname&quot; &nbsp;/&gt;</div>
+
+</li>
+</ol>
+</div>
+<p>In your language js file have something like (nname is the function name to call):</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">&quot;validate2fields&quot;:{
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;nname&quot;:&quot;validate2fields&quot;,
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&quot;alertText&quot;:&quot;* You must have a firstname and a lastname&quot;}
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp; &nbsp;}</div>
+
+</li>
+</ol>
+</div>
+<p>Now the custom function that could be anywhere in your JS</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">&nbsp;function validate2fields(){
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp;if($(&quot;#firstname&quot;).val() ==&quot;&quot; || $(&quot;#lastname&quot;).val() == &quot;&quot;){
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp; return true;
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp;}else{
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp; return false;
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp;}
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; }</div>
+</li>
+</ol>
+</div>
+<h3>I want to validate directly from javascript</h3>
+<p>You can call a validation like this: <strong>$.validationEngine.loadValidation(&#8220;#date&#8221;)</strong></p>
+
+<p><strong>Open and close prompts on everything</strong><br />
+Use my prompt on everything you want like a div element. You can call a prompt this way: $.validationEngine.buildPrompt(#ID,promptMessage,type)<br />
+ex: <strong>$.validationEngine.buildPrompt(&#8220;#date&#8221;,&#8221;This field is required&#8221;,&#8221;error&#8221;)</strong></p>
+<p>Close prompt for field ID: <strong>$.validationEngine.closePrompt(&#8220;#date&#8221;)</strong><br />
+
+Close prompt anything else: <strong>$.validationEngine.closePrompt(&#8220;.allmydiv&#8221;,true)</strong> true means look outside the form<br />
+There are 3 type : error (red), pass (green), loading (black)</p>
+<p><strong>Stop inline validation for 1 field</strong><br />
+Sometimes you have a field with a calender, but you want to keep the inline validation for all the other fields, or even this field if the user manually change the input. Well you can now intercept the inline validation by setting this variable on onlick or onchange state : <strong> $.validationEngine.intercept = true;</strong></p>
+<h3>Inline AJAX validation</h3>
+
+<p>This functionality is quite simple to integrate, in your class attribute add: ajax[ajaxUser]<br />
+It should be the last item to validate in your validate[], while this is not necessary, I found it worked best there.<br />
+Ajax validation works only inline, when your field is validated for normal rules, it will create a post to a php file. There is no way for the user to bypass this, if the field do not validate on form submit, the user will need to change the information and the AJAX validation will occur.</p>
+<p>In your json you follow pretty much the same syntax  that you would use with a custom regex:</p>
+<pre>
+"ajaxUser":{
+"file":"validateUser.php",
+"alertText":"* This user is already taken",
+"alertTextOk":"* This user is available",
+"alertTextLoad":"* Loading please wait"},
+</pre>
+<p>The <strong>&#8220;file&#8221;:</strong> is obviously where you want your field value to be posted. In the validateUser.php you will have to keep the defined variable at the top, do your validation and at the end of the file you will see that I echo a json variable back. Please keep the same syntax. For now this file fake a php validation.</p>
+
+<p>The alertTextOk and alertTextLoad are optional, this is, for example, to tell your user the nickname he has chosen is available, the box will also become green. </p>
+<h3>Ajax Submitting</h3>
+<p>This send your form to a specific php file for manipulation, you can return field errors or a success text message. The ajax success function described below can still be called and will be executed after the ajax submit validation occur.</p>
+<p><strong>Extra Data</strong></p>
+<p>You can add extra data to apss along with this setting: ajaxSubmitExtraData</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">$(&quot;#formID&quot;).validationEngine({
+</div>
+
+</li>
+<li class="li1">
+<div class="de1">&nbsp;ajaxSubmit: true,
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; ajaxSubmitFile: &quot;ajaxSubmit.php&quot;,
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; ajaxSubmitMessage: &quot;Thank you, we received your inscription!&quot;,
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ajaxSubmitExtraData: &quot;securityCode=38709238423&amp;name=john&quot;,
+</div>
+</li>
+
+<li class="li1">
+<div class="de1">&nbsp;success : &nbsp;false,
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp;failure : function() {}
+</div>
+</li>
+<li class="li1">
+<div class="de1">})</div>
+</li>
+</ol>
+</div>
+<p>In your php, if the form validate, the variable <strong>$isValidate</strong> need to be set to true the form will disappear and the success message will appear instead. If it does not validate set $isValidate to false follow this syntax to call an array of errors :</p>
+
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">$arrayError[0][0] = &quot;#email&quot;; &nbsp; // FIELDID
+</div>
+</li>
+<li class="li1">
+<div class="de1">$arrayError[0][1] = &quot;Your email do not match.. whatever it need to match&quot;; &nbsp;// TEXT ERROR
+</div>
+</li>
+
+<li class="li1">
+<div class="de1">$arrayError[0][2] = &quot;error&quot;; &nbsp; // BOX COLOR</div>
+</li>
+</ol>
+</div>
+<p><strong>AJAX Success and failure call to actions</strong><br />
+If you want to  post your form in AJAX you can define a success and failure function to be executed on form submit and there will be no page reload. In the jquery.validationEngine.js. Look in the document ready for this:</p>
+<div class="geshi no html">
+<ol>
+<li class="li1">
+
+<div class="de1">// replace &quot;success: false,&quot; by: success : function() { callSuccessFunction() },
+</div>
+</li>
+<li class="li1">
+<div class="de1">&nbsp;</div>
+</li>
+<li class="li1">
+<div class="de1">$(&quot;#formID&quot;).validationEngine({
+</div>
+</li>
+<li class="li1">
+<div class="de1">success : &nbsp;false,
+
+</div>
+</li>
+<li class="li1">
+<div class="de1">failure : function() { callFailFunction() &nbsp;}
+</div>
+</li>
+<li class="li1">
+<div class="de1">})</div>
+</li>
+</ol>
+</div>
+<h3>Debug Mode</h3>
+<p>The debug mode appears when there is something wrong with the validation engine. It has a set of trigger to look upon validation and try to help you accordingly, it should help you get everything in line to get the script working in your environment.</p>
+
+
+<h3>Disable</h3>
+<p>Desativa o validationEngine do form.</p>
+
+<div class="geshi no html">
+<ol>
+<li class="li1">
+<div class="de1">$.validationEngine.disable('form');</div>
+</li>
+</ol>
+</div>
+
+<p><br clear="all" /></p>
+
+</body>
+</html>

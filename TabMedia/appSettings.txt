@@ -1,0 +1,102 @@
+﻿<appSettings>
+	<!--Sistema-->
+	<add key="NomeSistema" value="NomeSistema"/>
+	<add key="EnviarEmailErro" value="false"/>
+	<!--Controle-->
+	<add key="SiteUrlLocal" value="http://rodrigo/trocarwebconfig/"/>
+	<add key="SiteUrlOnline" value="http://guiropa.tecnologia.ws/trocarwebconfig/"/>
+	<add key="HostOnline" value="guiropa.tecnologia.ws"/>
+	<!--Visitantes-->
+	<add key="ControlarVisitantesOnline" value="false"/>
+	<!--Autenticação/Login-->
+	<add key="UrlLogin" value="~/login"/>
+	<add key="UrlDefault" value="~/"/>
+	<add key="UrlLoginAdmin" value="~/admin/login"/>
+	<add key="UrlDefaultAdmin" value="~/admin/usuarios"/>
+	<add key="UrlLoginConfig" value="~/sistema/login"/>
+	<!--Email-->
+        <!--Envio-->
+	    <add key="NomeEnvioPadrao" value="Nome"/>
+	    <add key="EmailEnvioPadrao" value="contato@nomesistema.com.br"/>
+	    <add key="SmtpHost" value="localhost"/>
+	    <add key="SmtpPort" value=""/>
+	    <add key="SmtpAutenticado" value="false"/>
+	    <add key="SmtpUsername" value="usuario"/>
+	    <add key="SmtpPassword" value="senha"/>
+	    <add key="EmailEncoding" value="ISO-8859-1"/>
+        <add key="EnableSsl" value="false"/>
+        <!--Contato--> 
+        <add key="NomeContatoPadrao" value="Makro Cestas"/>
+        <add key="EmailContatoPadrao" value="rodrigo.sales@guiropa.com"/>
+        <add key="EmailDesenvolvedor" value="rodrigo.sales@guiropa.com" />
+	<!--Analytics-->
+    <!--trocar pelo valor presente em ['_setAccount', 'UA-1936778-22'] do codigo fornecido pelo Google Analytics -->
+    <add key="AnalyticsId" value="UA-1936778-22"/>
+	<!--Addthis-->
+	<add key="AddthisEnabled" value="true"/>
+	<add key="AddthisUsername" value=""/>
+	<!--Customização-->
+	    <!--Config-->
+	    <add key="QtdeMaxTentativasConfig" value="3"/>
+	    <add key="SenhaConfig" value="g5u7i8123"/>
+        <!--Validation Engine-->
+        <add key="VECorFundo" value="#DD0000"/>
+        <add key="VECorFonte" value="white"/>
+        <add key="VELargura" value="150px"/>
+        <add key="VETamanhoSombra" value="2px"/>
+        <add key="VETamanhoCurvaBorda" value="4px"/>
+        <!--Admin-->
+            <!--Login-->
+            <add key="AdminCorLoginFundo" value=""/>
+            <add key="AdminCorLoginFonte" value=""/>
+            <add key="AdminImagemLogoLogin" value="logo.gif"/>
+            <!--Geral-->            
+            <add key="AdminCorFundo" value=""/>
+            <add key="AdminCorFonte" value=""/>
+            <add key="AdminImagemLogo" value="logo.gif"/>
+            <add key="AdminOrientacaoMenu" value="horizontal"/> 
+            <add key="AdminCorLinksFonte" value=""/>
+            <add key="AdminCorLinksHoverFonte" value=""/>
+            <!--Topo-->
+            <add key="AdminCorMenuTopoFundo" value=""/>
+            <add key="AdminCorMenuTopoFonte" value=""/>
+            <add key="AdminCorMenuTopoBotoesFundo" value=""/>
+            <add key="AdminCorMenuTopoBotoesFonte" value=""/>
+            <add key="AdminCorMenuTopoBotoesHoverFundo" value=""/>
+            <add key="AdminCorMenuTopoBotoesHoverFonte" value=""/>
+            <!--Menu-->
+            <add key="AdminCorMenuFundo" value=""/>
+            <add key="AdminCorMenuHoverFundo" value=""/>
+            <add key="AdminCorMenuFonte" value=""/>
+            <add key="AdminCorMenuHoverFonte" value=""/>
+            <!--Conteudo-->
+                <!--Geral-->
+                <add key="AdminCorTituloFundo" value=""/>
+                <add key="AdminCorTituloFonte" value=""/>
+                <add key="AdminCorConteudoFundo" value=""/>
+                <add key="AdminCorConteudoFonte" value=""/>
+                <!--Botoes-->
+                <add key="AdminCorBotoesFundo" value=""/>
+                <add key="AdminCorBotoesFonte" value=""/>
+                <add key="AdminCorBotoesHoverFundo" value=""/>
+                <add key="AdminCorBotoesHoverFonte" value=""/>
+                <!--Tabela-->
+                <add key="AdminCorTabelaFundo" value=""/>
+                <add key="AdminCorTabelaHeaderFonte" value=""/>
+                <add key="AdminCorTabelaHeaderSelecionadoFonte" value=""/>
+                <add key="AdminCorTabelaLinha1Fundo" value=""/>
+                <add key="AdminCorTabelaLinha1Fonte" value=""/>
+                <add key="AdminCorTabelaLinha2Fundo" value=""/>
+                <add key="AdminCorTabelaLinha2Fonte" value=""/>
+                <add key="AdminImagemTabelaHeaderSetaCima" value=""/>
+                <add key="AdminImagemTabelaHeaderSetaBaixo" value=""/>
+                <!--Conteudo Secundario-->
+                <add key="AdminCorConteudoSecundarioFundo" value=""/>
+                <add key="AdminCorConteudoSecundarioFonte" value=""/>
+            <!--Rodape-->
+            <add key="AdminCorRodapeBotoesFundo" value=""/>
+            <add key="AdminCorRodapeBotoesFonte" value=""/>
+            <add key="AdminCorRodapeBotoesHoverFundo" value=""/>
+            <add key="AdminCorRodapeBotoesHoverFonte" value=""/>
+</appSettings>
+

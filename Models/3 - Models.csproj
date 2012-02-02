@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10BA606B-A332-4E7F-BB01-82D0B61F7D4F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GhostscriptSharp">
+      <HintPath>..\GuiropaIpad\Lib\GhostscriptSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\GuiropaIpad\Lib\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\GuiropaIpad\Lib\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\GuiropaIpad\Lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp-WPF">
+      <HintPath>..\GuiropaIpad\Lib\PdfSharp-WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\GuiropaIpad\Lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Acao.cs" />
+    <Compile Include="Models\AcaoGrupo.cs" />
+    <Compile Include="Models\AcaoGrupoRepository.cs" />
+    <Compile Include="Models\AcaoRepository.cs" />
+    <Compile Include="Models\Ajuda.cs" />
+    <Compile Include="Models\AjudaRepository.cs" />
+    <Compile Include="Models\Authorize\AuthorizeConfig.cs" />
+    <Compile Include="Models\Authorize\AuthorizeLoginTerritorio.cs" />
+    <Compile Include="Models\Authorize\AuthorizePermissao.cs" />
+    <Compile Include="Models\Authorize\AuthorizeLogin.cs" />
+    <Compile Include="Models\Controlador.cs" />
+    <Compile Include="Models\ControladorRepository.cs" />
+    <Compile Include="Models\AppDownload.cs" />
+    <Compile Include="Models\AppDownloadRepository.cs" />
+    <Compile Include="Models\ProdutoVaCategoria.cs" />
+    <Compile Include="Models\ProdutoVaCategoriaRepository.cs" />
+    <Compile Include="Models\Relatorio.cs" />
+    <Compile Include="Models\ScreenshotHelper\ScreenshotHelper.cs" />
+    <Compile Include="Models\TerritorioInfo.cs" />
+    <Compile Include="Models\DoutorCadastro.cs" />
+    <Compile Include="Models\DoutorCadastroRepository.cs" />
+    <Compile Include="Models\DoutorProduto.cs" />
+    <Compile Include="Models\DoutorProdutoRepository.cs" />
+    <Compile Include="Models\Sistema\Util\Numeros.cs" />
+    <Compile Include="Models\Territorio.cs" />
+    <Compile Include="Models\TerritorioRepository.cs" />
+    <Compile Include="Models\DoutorEspecialidade.cs" />
+    <Compile Include="Models\DoutorEspecialidadeRepository.cs" />
+    <Compile Include="Models\Especialidade.cs" />
+    <Compile Include="Models\EspecialidadeRepository.cs" />
+    <Compile Include="Models\ProdutoLinha.cs" />
+    <Compile Include="Models\ProdutoLinhaRepository.cs" />
+    <Compile Include="Models\ProdutoVaComentarioRepository.cs" />
+    <Compile Include="Models\DB\DB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Doutor.cs" />
+    <Compile Include="Models\DoutorRepository.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\EmailRepository.cs" />
+    <Compile Include="Models\Erro.cs" />
+    <Compile Include="Models\ErroRepository.cs" />
+    <Compile Include="Models\GerenciadorArquivo.cs" />
+    <Compile Include="Models\GerenciadorArquivoRepository.cs" />
+    <Compile Include="Models\Grupo.cs" />
+    <Compile Include="Models\GrupoRepository.cs" />
+    <Compile Include="Models\Log.cs" />
+    <Compile Include="Models\LogRepository.cs" />
+    <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\ProdutoRepository.cs" />
+    <Compile Include="Models\ProdutoVa.cs" />
+    <Compile Include="Models\ProdutoVaArquivo.cs" />
+    <Compile Include="Models\ProdutoVaArquivoRepository.cs" />
+    <Compile Include="Models\ProdutoVaRepository.cs" />
+    <Compile Include="Models\ProdutoVaSlide.cs" />
+    <Compile Include="Models\ProdutoVaSlideArquivo.cs" />
+    <Compile Include="Models\ProdutoVaSlideArquivoRepository.cs" />
+    <Compile Include="Models\ProdutoVaSlideRepository.cs" />
+    <Compile Include="Models\RelatorioEmail.cs" />
+    <Compile Include="Models\RelatorioEmailRepository.cs" />
+    <Compile Include="Models\RelatorioPagina.cs" />
+    <Compile Include="Models\RelatorioPaginaRepository.cs" />
+    <Compile Include="Models\Sistema\Autenticacao\Autenticacao.cs" />
+    <Compile Include="Models\Sistema\BaseController.cs" />
+    <Compile Include="Models\Sistema\CustomActionResults\DownloadResult.cs" />
+    <Compile Include="Models\Sistema\CustomConfig.cs" />
+    <Compile Include="Models\Sistema\CustomConfigRepository.cs" />
+    <Compile Include="Models\Sistema\DataAnnotations\PropertiesMatchAttribute.cs" />
+    <Compile Include="Models\Sistema\ExtensionMethods\ExtensionsMethods.cs" />
+    <Compile Include="Models\Sistema\Sessao\Config.cs" />
+    <Compile Include="Models\Sistema\Sessao\Site.cs" />
+    <Compile Include="Models\Sistema\Util\Arquivo.cs" />
+    <Compile Include="Models\Sistema\Util\Cadastro.cs" />
+    <Compile Include="Models\Sistema\Util\Configuracao.cs" />
+    <Compile Include="Models\Sistema\Util\Controle.cs" />
+    <Compile Include="Models\Sistema\Util\Conversao.cs" />
+    <Compile Include="Models\Sistema\Util\Criptografia.cs" />
+    <Compile Include="Models\Sistema\Util\Dados.cs" />
+    <Compile Include="Models\Sistema\Util\Data.cs" />
+    <Compile Include="Models\Sistema\Util\Email.cs" />
+    <Compile Include="Models\Sistema\Util\Header.cs" />
+    <Compile Include="Models\Sistema\Util\Html.cs" />
+    <Compile Include="Models\Sistema\Util\Imagem.cs" />
+    <Compile Include="Models\Sistema\Util\Logs.cs" />
+    <Compile Include="Models\Sistema\Util\Sistema.cs" />
+    <Compile Include="Models\Sistema\Util\Texto.cs" />
+    <Compile Include="Models\Sistema\Util\Url.cs" />
+    <Compile Include="Models\Sistema\Util\Youtube.cs" />
+    <Compile Include="Models\Sistema\Validations\Validations.cs" />
+    <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuarioInfo.cs" />
+    <Compile Include="Models\UsuarioRepository.cs" />
+    <Compile Include="Models\VideoEncoder\EncodedVideo.cs" />
+    <Compile Include="Models\VideoEncoder\Encoder.cs" />
+    <Compile Include="Models\VideoEncoder\QuickAudioEncodingCommands.cs" />
+    <Compile Include="Models\VideoEncoder\QuickVideoEncodingCommands.cs" />
+    <Compile Include="Models\VideoEncoder\VideoFile.cs" />
+    <Compile Include="Models\VisitaOnline.cs" />
+    <Compile Include="Models\VisitaOnlineRepository.cs" />
+    <Compile Include="Models\Visualizacao.cs" />
+    <Compile Include="Models\VisualizacaoRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DB\DB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DB\DB.dbml.layout">
+      <DependentUpon>DB.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2254</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
